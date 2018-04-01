@@ -82,6 +82,7 @@ function checkMessageForCommand(msg, isEdit) {
       var cmd = alias;
     } else {
       var cmd = commands[cmdTxt];
+
     }
     if (cmdTxt === 'help') {
       //help is special since it iterates over the other commands
