@@ -33,7 +33,7 @@ var commands = {
         msg.channel.send('note that !ping takes no arguments!');
       }
     }
-  }
+  }*/
 };
 
 var bot = new Discord.Client();
