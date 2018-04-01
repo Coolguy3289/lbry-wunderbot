@@ -12,12 +12,12 @@ exports.releasenotes = {
   usage: '',
   description: 'gets current release notes from GITHUB',
   process: function(bot, msg, suffix) {
-    var headers = {
+    let headers = {
       'Content-Type': 'application/json',
       'User-Agent': 'Super Agent/0.0.1'
     };
     // Configure the request
-    var options = {
+    let options = {
       url: 'https://api.github.com/repos/lbryio/lbry-app/releases/latest',
       method: 'GET',
       headers: headers

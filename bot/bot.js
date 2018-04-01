@@ -3,11 +3,10 @@
 // Load up libraries
 const Discord = require('discord.js');
 // Load config!
-let config = require('config');
+var config = require('config');
 config = config.get('bot');
 
 //load modules
-const claimbot = require('./modules/claimbot.js');
 const commandsV2 = require('./modules/commandsV2.js');
 const supportbot = require('./modules/supportbot.js');
 
@@ -28,7 +27,7 @@ var commands = {
   ping: {
     description: 'responds pong, useful for checking if bot is alive',
     process: async function(bot, msg, suffix) {
-      let m = await msg.channel.send(msg.author + ' Ping?');
+      var m = await msg.channel.send(msg.author + ' Ping?');
       m.edit(`Pong! Latency is ${m.createdTimestamp - msg.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`);
       if (suffix) {
         msg.channel.send('note that !ping takes no arguments!');
@@ -43,10 +42,9 @@ bot.on('ready', function() {
   console.log('Logged in! Serving in ' + bot.guilds.array().length + ' servers');
   require('./plugins.js').init();
   console.log('type ' + config.prefix + 'help in Discord for a commands list.');
-  bot.user.setGame(config.prefix + 'help');
+  bot.user.setActivity(config.prefix + 'help', { type: 'LISTENING' }).catch(console.error);
 
   //initialize the claimbot (content bot)
-  claimbot.init(bot);
   //initialize the commandsBot
   commandsV2.init(bot);
   //initialize the support bot
@@ -60,9 +58,9 @@ bot.on('disconnected', function() {
 
 function checkMessageForCommand(msg, isEdit) {
   //check if message is a command
-  if (msg.author.id != bot.user.id && msg.content.startsWith(config.prefix)) {
+  if (msg.author.id !== bot.user.id && msg.content.startsWith(config.prefix)) {
     //check if user is Online
-    if (!msg.author.presence.status || msg.author.presence.status == 'offline' || msg.author.presence.status == 'invisible') {
+    if (!msg.author.presence.status || msg.author.presence.status === 'offline' || msg.author.presence.status === 'invisible') {
       msg.channel.send('Please set your Discord Presence to Online to talk to the Bot!');
       return;
     }
@@ -79,12 +77,11 @@ function checkMessageForCommand(msg, isEdit) {
         return;
       }
     }
-    let alias = aliases[cmdTxt];
+    var alias = aliases[cmdTxt];
     if (alias) {
       var cmd = alias;
     } else {
       var cmd = commands[cmdTxt];
-
     }
     if (cmdTxt === 'help') {
       //help is special since it iterates over the other commands
@@ -154,16 +151,16 @@ function checkMessageForCommand(msg, isEdit) {
         msg.channel.send(msgTxt);
       }
     } else {
-      //msg.channel.send(cmdTxt + ' not recognized as a command!').then(message => message.delete(10000));
+      //msg.channel.send(cmdTxt + ' not recognized as a command!').then(message => message.devare(10000));
     }
   } else {
     //message isn't a command or is from us
     //drop our own messages to prevent feedback loops
-    if (msg.author == bot.user) {
+    if (msg.author === bot.user) {
       return;
     }
 
-    if (msg.author != bot.user && msg.isMentioned(bot.user)) {
+    if (msg.author !== bot.user && msg.isMentioned(bot.user)) {
       msg.channel.send('yes?'); //using a mention here can lead to looping
     } else {
     }

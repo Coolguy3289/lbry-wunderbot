@@ -7,56 +7,55 @@
 
 * Price bot displays price of lbc for currency given.
 
-  - *Responds to `!price <cur> <amount>`*
+  * _Responds to `!price <cur> <amount>`_
 
 * Stats bot displays current market stats of lbc.
 
-  - *Responds to `!stats`*
+  * _Responds to `!stats`_
 
 * Hash bot displays current hashrate of lbc network. Also Includes to calculate given MH/s to LBC & fiat per hr, day, week, month.
 
-  - *Responds to `!hash`*
+  * _Responds to `!hash`_
 
-  - *Responds to `!hash power <MH/s> <fiat>`*
+  * _Responds to `!hash power <MH/s> <fiat>`_
 
 * AltStats bot displays current market stats of specfied currency
 
-  - *Responds to `!altstats <coin>`*
+  * _Responds to `!altstats <coin>`_
 
 * AltPrice bot displays current price for given coin and currency
 
-  - *Responds to `!altprice <coin> <currency> <amount>`*
+  * _Responds to `!altprice <coin> <currency> <amount>`_
 
 * Github Release Notes bot displays release notes for current lbry-app release.
 
-  - *Responds to `!releasenotes`*
+  * _Responds to `!releasenotes`_
 
-  - *(moderator only) `!releasenotes post` - send to release notes channel*
+  * _(moderator only) `!releasenotes post` - send to release notes channel_
 
 * Purge Bot deletes X amount of messages.
 
-  - *(moderator only)  Responds to `!purge <X>`*
+  * _(moderator only) Responds to `!purge <X>`_
 
-* Speech bot displays top claim from provided image name(coming soon posting to
-  speech).
+* Speech bot displays top claim from provided image name(coming soon posting to speech).
 
-  - *Responds to `!speech <imagename>`*
+  * _Responds to `!speech <imagename>`_
 
 * Welcome bot sends Direct Message when new users join,
 
-  - *(moderator only) Responds to `!welcome <@username>`*
+  * _(moderator only) Responds to `!welcome <@username>`_
 
 * Timeout bot assigns members the timeout roll for X-minutes where they are restricted from talking
 
-  - *(moderator only) Responds to `!timeout <@username> <Mins>`*
+  * _(moderator only) Responds to `!timeout <@username> <Mins>`_
 
 * Roll Setter bot allows users to assign themselves rolls
 
-  - *Responds to `!addrole <role>` - Adds to Role*
+  * _Responds to `!addrole <role>` - Adds to Role_
 
-  - *Responds to `!delrole <role>` - Deletes from Role*
+  * _Responds to `!delrole <role>` - Deletes from Role_
 
-  - *Responds to `!roles` - List Available Roles*
+  * _Responds to `!roles` - List Available Roles_
 
 * LBRY URL Linker displays lbry:// urls as open.lbry.io links to make them clickable
 
@@ -71,35 +70,37 @@
 </details>
 </h3>
 
-____
+---
 
 ### Requirements
 
 * node > 8.0.0
 * npm > 0.12.x
 * yarn ( install with npm install -g yarn if not installed )
-____
+
+---
+
 ### Installation
 
-Create a bot and get the bot's API Token:
-https://discordapp.com/developers/applications/me
+Create a bot and get the bot's API Token: https://discordapp.com/developers/applications/me
 
-Edit and rename default.json.example in /config, then cd to wunderbot directory
-and run:
+Edit and rename default.json.example in /config, then cd to wunderbot directory and run:
 
 ```
 yarn install
 node bot/bot.js
 ```
-____
+
+---
+
 ### Development
 
-Be sure to run the command below before working on any code, this ensures
-prettier goes to work and keeps code to our standard.
+Be sure to run the command below before working on any code, this ensures prettier goes to work and keeps code to our standard.
 
 ```
 yarn install --production=false
 ```
+
 to run prettier before submitting your code simply run the following in the bots root directory.
 
 ```

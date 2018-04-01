@@ -13,7 +13,7 @@ exports.hasPerms = function(msg) {
 
 // Check if command was sent in dm
 exports.inPrivate = function(msg) {
-  return msg.channel.type == 'dm';
+  return msg.channel.type === 'dm';
 };
 
 // Checks if Message was sent from a channel in speechBot Channels list
