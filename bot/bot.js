@@ -33,7 +33,7 @@ var commands = {
         msg.channel.send('note that !ping takes no arguments!');
       }
     }
-  }*/
+  }
 };
 
 var bot = new Discord.Client();
@@ -82,7 +82,6 @@ function checkMessageForCommand(msg, isEdit) {
       var cmd = alias;
     } else {
       var cmd = commands[cmdTxt];
-
     }
     if (cmdTxt === 'help') {
       //help is special since it iterates over the other commands
